@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: bookscan companion API
+  version: 0.1.0
+servers:
+  - url: http://{host}:{port}
+    variables:
+      host:
+        default: 127.0.0.1
+      port:
+        default: "7842"
+paths:
+  /v1/status:
+    get:
+      summary: Companion health and queue stats
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  version:
+                    type: string
+                  queue_len:
+                    type: integer
+                  processed_count:
+                    type: integer
+                  phone_connected:
+                    type: boolean
+                  capture_mode:
+                    type: string
+                    enum: [auto, semi, manual]
+                  point_state:
+                    type: string
+                    enum: [searching, stable, armed, unknown]
+  /v1/pages:
+    post:
+      summary: Upload a captured page image
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                page_id:
+                  type: string
+      responses:
+        "200":
+          description: Queued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page_id:
+                    type: string
+                  queued:
+                    type: boolean
+  /v1/pages/{id}:
+    get:
+      summary: Page processing status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page_id:
+                    type: string
+                  status:
+                    type: string
+                    enum: [queued, processing, ready, error]
+                  error:
+                    type: string
+                    nullable: true
+  /v1/ws:
+    get:
+      summary: WebSocket control channel
+      responses:
+        "101":
+          description: Switching Protocols

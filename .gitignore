@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.library/
+.bookscan_test_lib/
+.DS_Store
+Thumbs.db
+bookscan-companion/target/
+bookscan/local.properties
+bookscan/.gradle/
+bookscan/app/build/
+atscanner/**/__pycache__/
