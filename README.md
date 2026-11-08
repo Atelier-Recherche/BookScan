@@ -39,8 +39,6 @@
 
 **BookScan** — ensemble Atelier pour numériser des livres : application Android **bookscan** (capture) + companion bureau **bookscan-companion** (réception LAN, pipeline image, UI Livescan) + scripts utilitaires.
 
-Le dépôt contient aussi un prototype Python Tkinter `atscanner/` **déprécié** (remplacé par le companion Rust).
-
 ## 🧩 Composants
 
 | Élément | Technologie | Rôle |

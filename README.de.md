@@ -39,8 +39,6 @@
 
 **BookScan** — Atelier-Werkzeugsatz zum Buchscannen: Android-App **bookscan** (Aufnahme) + Desktop-**bookscan-companion** (LAN-Empfang, Bildpipeline, Livescan-UI) + Hilfsskripte.
 
-Das Repository enthält außerdem einen Tkinter-Python-Prototyp `atscanner/`, der **veraltet** ist (ersetzt durch den Rust-Companion).
-
 ## 🧩 Komponenten
 
 | Teil | Technik | Rolle |

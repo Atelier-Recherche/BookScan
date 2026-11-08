@@ -39,8 +39,6 @@
 
 **BookScan** — Atelier toolkit for book scanning: Android **bookscan** app (capture) + desktop **bookscan-companion** (LAN receive, image pipeline, Livescan UI) + utility scripts.
 
-The repo also includes a Tkinter Python prototype `atscanner/` that is **deprecated** (replaced by the Rust companion).
-
 ## 🧩 Components
 
 | Piece | Stack | Role |
